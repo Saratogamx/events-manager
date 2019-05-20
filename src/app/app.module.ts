@@ -25,6 +25,7 @@ import { JQ_TOKEN } from './common/jQuery.service';
 
 // Importing custom "modalTrigger" directive
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
+import { LocationValidatorDirective } from './events/location-validator.directive';
 
 // Importing custom pipes
 import { DurationPipe } from './events/shared/duration.pipe';
@@ -56,8 +57,9 @@ const jQuery = window['$'];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
+    UpvoteComponent,
     ModalTriggerDirective,
-    UpvoteComponent
+    LocationValidatorDirective
   ],
   providers: [
     {
