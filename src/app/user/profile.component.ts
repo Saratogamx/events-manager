@@ -46,13 +46,25 @@ export class ProfileComponent implements OnInit {
 
   saveProfile(formValues) {
     if (this.profileForm.valid) {
-      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
-      this.toastr.success('Profile Saved', null, {
-        onHidden: () => this.router.navigate(['events'])
-      });
+
+      // Calls updateCurrentUser and subscribes to the returned Observable
+      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName)
+        .subscribe(() => {
+          this.toastr.success('Profile Saved', null, {
+            onHidden: () => this.router.navigate(['events'])
+          });
+        });
+
     } else {
       this.toastr.error('Form is invalid.', 'Errors:');
     }
+  }
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.toastr.info('You have been logged out.', null);
+      this.router.navigate(['/user/login']);
+    });
   }
 
   cancel() {

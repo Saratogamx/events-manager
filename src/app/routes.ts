@@ -8,13 +8,13 @@ import { ErrNotfoundComponent } from './errors/err-notfound.component';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 
 // Importing services
-import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 import { EventsListResolverService } from './events/events-list-resolver.service';
+import { EventResolverService } from './events/event-resolver.service';
 
 export const appRoutes: Routes = [
     { path: 'events/new', component: CreateEventComponent, canDeactivate: ['canDeactivateCreateEvent'] },
-    { path: 'events', component: EventsListComponent, resolve: { events: EventsListResolverService} },
-    { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivatorService] },
+    { path: 'events', component: EventsListComponent, resolve: { events: EventsListResolverService } },
+    { path: 'events/:id', component: EventDetailsComponent, resolve: { event: EventResolverService } },
     { path: 'events/session/new', component: CreateSessionComponent },
     { path: '404', component: ErrNotfoundComponent },
     { path: '', redirectTo: '/events', pathMatch: 'full' },

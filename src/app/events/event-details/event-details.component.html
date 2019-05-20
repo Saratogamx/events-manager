@@ -61,7 +61,8 @@
   
   <!-- CALL TO "SESSION-LIST" COMPONENT -->
   <session-list 
-    *ngIf="!addMode" 
+    *ngIf="!addMode"
+    [eventId]="event?.id"
     [sessions]="event?.sessions" 
     [filterBy]="filterBy" 
     [sortBy]="sortBy"

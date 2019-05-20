@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Importing application components
 import { EventsAppComponent } from './events-app.component';
@@ -42,7 +43,8 @@ const jQuery = window['$'];
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   declarations: [
     EventsAppComponent,
@@ -66,7 +68,7 @@ const jQuery = window['$'];
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
     },
-    // Declaring TOASTR_TOKEN injection token as a provider
+    // Declaring TOASTR_TOKEN injection token as a provider for toastr and jQuery
     {
       provide: TOASTR_TOKEN,
       useValue: toastr

@@ -5,12 +5,15 @@ import { EventService } from './shared/event.service';
 @Injectable({
   providedIn: 'root'
 })
-export class EventsListResolverService implements Resolve<any> {
+export class EventResolverService implements Resolve<any> {
 
   constructor(private eventService: EventService) {}
 
-  resolve(route: ActivatedRouteSnapshot, rstate: RouterStateSnapshot) {
-    return this.eventService.getEvents();
+  resolve(
+    route: ActivatedRouteSnapshot,
+    rstate: RouterStateSnapshot
+  ) {
+    return this.eventService.getEvent(+route.params['id']);
   }
 
 }
