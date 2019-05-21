@@ -26,7 +26,7 @@ export class SessionListComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     // Validates that sessions are set
     if (this.sessions) {
       // Call "filterSessions" method

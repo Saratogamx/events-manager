@@ -1,4 +1,4 @@
-import { DurationPipe } from './duration.pipe';
+/* import { DurationPipe } from './duration.pipe';
 
 describe('DurationPipe', () => {
   it('create an instance', () => {
@@ -6,3 +6,4 @@ describe('DurationPipe', () => {
     expect(pipe).toBeTruthy();
   });
 });
+ */
